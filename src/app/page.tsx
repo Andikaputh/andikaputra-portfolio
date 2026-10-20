@@ -1,69 +1,68 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
+import { BentoHeader } from "@/components/BentoHeader";
+import { BentoDock } from "@/components/BentoDock";
+import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
+import { Skills } from "@/components/Skills";
+import { Experience } from "@/components/Experience";
+import { LabCarousel } from "@/components/LabCarousel";
+import { ContactModal } from "@/components/ContactModal";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("overview");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="relative w-full min-h-screen bg-[#0d0e12] text-neutral-300 font-sans overflow-x-hidden selection:bg-rose-600 selection:text-white pb-32">
+      {/* Background Lighting & Grid Effects */}
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,#171923_0%,#0d0e12_100%)] pointer-events-none -z-20" />
+      <div className="fixed -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-rose-600/10 blur-[160px] pointer-events-none -z-10" />
+      <div className="fixed bottom-10 -left-20 w-[450px] h-[450px] rounded-full bg-red-900/15 blur-[140px] pointer-events-none -z-10" />
+      <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none -z-10" />
+
+      {/* Top Header */}
+      <BentoHeader onOpenContact={() => setIsModalOpen(true)} />
+
+      {/* Main Canvas Area */}
+      <div className="w-full px-4 sm:px-6 py-6 sm:py-8">
+        {activeTab === "overview" && (
+          <div className="space-y-12">
+            <Hero onNavigateToProjects={() => setActiveTab("projects")} />
+            <About />
+            <Skills />
+            <LabCarousel />
+          </div>
+        )}
+        {activeTab === "about" && <About />}
+        {activeTab === "skills" && <Skills />}
+        {activeTab === "experience" && <Experience />}
+        {activeTab === "projects" && <LabCarousel />}
+        {activeTab === "contact" && (
+          <section className="text-center space-y-4 max-w-lg mx-auto py-20 px-6 bg-neutral-900/80 border border-neutral-800 rounded-3xl backdrop-blur-md">
+            <h3 className="text-xl font-bold text-rose-500 font-mono">GET IN TOUCH</h3>
+            <h2 className="text-3xl font-extrabold text-white tracking-tight">
+              Let’s Build Something Great.
+            </h2>
+            <p className="text-neutral-400 text-xs leading-relaxed">
+              Terbuka untuk kolaborasi, proyek, maupun posisi profesional di bidang Data, Machine Learning, dan AI Engineering.
+            </p>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="mt-4 px-8 py-3 bg-rose-600 text-white font-mono font-bold text-xs rounded-full shadow-[0_0_25px_rgba(225,29,72,0.4)] hover:bg-rose-500 transition-all cursor-pointer"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+              Open Contact Form
+            </button>
+          </section>
+        )}
+      </div>
+
+      {/* Floating Bottom Dock Navigation */}
+      <BentoDock activeTab={activeTab} onTabChange={setActiveTab} />
+
+      {/* Contact Modal */}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </main>
   );
 }
