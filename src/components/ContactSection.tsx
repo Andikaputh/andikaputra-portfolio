@@ -12,7 +12,7 @@ interface ContactSectionProps {
 
 const SOCIALS = [
   { key: "github", label: "GitHub", handle: "@Andikaputh", Icon: FaGithub },
-  { key: "linkedin", label: "LinkedIn", handle: "andikaputraperdana", Icon: FaLinkedin },
+  { key: "linkedin", label: "LinkedIn", handle: "andika-putra-perdana", Icon: FaLinkedin },
   { key: "instagram", label: "Instagram", handle: "@andikaa_a_", Icon: FaInstagram },
 ] as const;
 

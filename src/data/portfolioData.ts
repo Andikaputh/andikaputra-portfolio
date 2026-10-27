@@ -32,7 +32,7 @@ export const PORTFOLIO_DATA = {
     email: "andikaputh1@gmail.com",
     socials: {
       github: "https://github.com/Andikaputh",
-      linkedin: "https://www.linkedin.com/in/andikaputraperdana/",
+      linkedin: "https://www.linkedin.com/in/andika-putra-perdana/",
       instagram: "https://www.instagram.com/andikaa_a_/",
     },
     cvPath: "/assets/cv.pdf",
