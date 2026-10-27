@@ -9,6 +9,7 @@ interface RevealProps {
 
 /**
  * Animasi masuk berbasis CSS scroll-driven animation (`animation-timeline: view()`).
+ * Hanya transform yang dianimasikan agar kontras teks tetap stabil saat reveal.
  * Konten tetap terlihat tanpa JavaScript, dan otomatis nonaktif pada
  * prefers-reduced-motion atau browser yang belum mendukung.
  */
