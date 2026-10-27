@@ -13,7 +13,7 @@ interface ContactSectionProps {
 const SOCIALS = [
   { key: "github", label: "GitHub", handle: "@Andikaputh", Icon: FaGithub },
   { key: "linkedin", label: "LinkedIn", handle: "andikaputraperdana", Icon: FaLinkedin },
-  { key: "instagram", label: "Instagram", handle: "@andika.p.p", Icon: FaInstagram },
+  { key: "instagram", label: "Instagram", handle: "@andikaa_a_", Icon: FaInstagram },
 ] as const;
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenContact }) => {
@@ -76,12 +76,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenContact })
     },
     {
       label: "Response",
-      value: "1–2 business days",
+      value: "1-2 business days",
       meta: "Via email, LinkedIn, or the form",
     },
     {
       label: "Education",
-      value: `${education.program} — ${education.institution}`,
+      value: `${education.program}, ${education.institution}`,
       meta: education.status,
     },
   ];
@@ -110,7 +110,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenContact })
               </h2>
 
               <p className="mt-5 max-w-md text-[13.5px] leading-relaxed text-[#8c8781]">
-                Share the context and the goal. I’ll respond with a realistic approach — even if the
+                Share the context and the goal. I’ll respond with a realistic approach, even if the
                 smartest solution isn’t machine learning.
               </p>
             </Reveal>

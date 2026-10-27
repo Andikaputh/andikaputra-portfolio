@@ -76,7 +76,7 @@ export const Projects: React.FC = () => {
         index="04"
         kicker="Work"
         title="Selected work"
-        subtitle="Nine systems built and documented — from clinical models and streaming pipelines to production AI services."
+        subtitle="Nine systems built and documented: from clinical ML and fraud decisioning to mission-aware recommendations."
       >
         <div className="flex items-center justify-between gap-6">
           <div

@@ -175,7 +175,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                 Let’s build something.
               </h2>
               <p className="mt-2 text-[12.5px] leading-relaxed text-[#8c8781]">
-                Share a few details below — I’ll get back to you by email within 1–2 business days.
+                Share a few details below. I’ll get back to you by email within 1-2 business days.
               </p>
             </div>
 

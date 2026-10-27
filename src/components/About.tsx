@@ -10,7 +10,7 @@ export const About: React.FC = () => {
   const facts = [
     {
       label: "Education",
-      value: `${education.program} — ${education.institution}`,
+      value: `${education.program}, ${education.institution}`,
       meta: education.status,
     },
     {
@@ -26,7 +26,7 @@ export const About: React.FC = () => {
     {
       label: "Availability",
       value: personal.statusText,
-      meta: "Response within 1–2 business days",
+      meta: "Response within 1-2 business days",
     },
   ];
 

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Andika Putra Perdana",
   },
   description:
-    "Informatics student at Universitas Gunadarma and a Data / AI Engineer. Experienced in MLOps, RAG, analytics dashboards, and real-time data pipelines.",
+    "Informatics student at Universitas Gunadarma and a Data / AI Engineer. Experienced in MLOps, real-time fraud decisioning, recommendation systems, RAG, and analytics dashboards.",
   keywords: [
     "Andika Putra Perdana",
     "Data Engineer",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Andika Putra Perdana | Data & AI Engineer",
     description:
-      "A portfolio of production machine learning systems, interactive dashboards, and real-time AI pipelines.",
+      "A portfolio of production machine learning systems, fraud decisioning, recommendation engines, and real-time AI pipelines.",
     url: "/",
     siteName: "Andika Putra Perdana Portfolio",
     locale: "en_US",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: "/assets/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Andika Putra Perdana — Data & AI Engineer",
+        alt: "Andika Putra Perdana, Data & AI Engineer",
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Andika Putra Perdana | Data & AI Engineer",
     description:
-      "A portfolio of production machine learning systems, interactive dashboards, and real-time AI pipelines.",
+      "A portfolio of production machine learning systems, fraud decisioning, recommendation engines, and real-time AI pipelines.",
     creator: "@andika_p_p",
     images: ["/assets/og-image.png"],
   },
@@ -90,6 +90,8 @@ const personJsonLd = {
     "Machine Learning",
     "MLOps",
     "Data Engineering",
+    "Fraud Detection",
+    "Recommendation Systems",
     "Retrieval-Augmented Generation",
     "Data Visualization",
   ],

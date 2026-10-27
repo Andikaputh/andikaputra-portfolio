@@ -1,9 +1,11 @@
-# Portofolio — Andika Putra Perdana
+# Portofolio: Andika Putra Perdana
+
+Live: https://andikaputra-portfolio.vercel.app
 
 Website portofolio pribadi untuk menampilkan proyek Data & AI, pengalaman, dan kontak.
 Dibangun dengan Next.js (App Router), React, Tailwind CSS v4, dan TypeScript.
 
-Arah desain: **editorial-technical** — latar near-black hangat, tipografi serif
+Arah desain **editorial-technical**: latar near-black hangat, tipografi serif
 untuk display, sans untuk teks, dan mono untuk metadata. Tanpa kartu berlebih,
 tanpa glow ungu, dan tanpa ilustrasi stok.
 
@@ -83,9 +85,9 @@ src/
 Font di-self-host lewat paket `@fontsource`, bukan `next/font/google`, agar build
 tidak bergantung pada akses ke Google Fonts:
 
-- **Instrument Serif** — display / judul
-- **Instrument Sans Variable** — teks antarmuka
-- **IBM Plex Mono** — metadata, label, dan angka
+- **Instrument Serif**: display / judul
+- **Instrument Sans Variable**: teks antarmuka
+- **IBM Plex Mono**: metadata, label, dan angka
 
 ## Efek & interaksi
 
@@ -99,10 +101,10 @@ tidak bergantung pada akses ke Google Fonts:
 
 ## Aset
 
-- `public/assets/profile.webp` — foto profil teroptimasi (1200×1200, ±60 KB)
-- `public/assets/og-image.png` — preview 1200×630 untuk media sosial
-- `public/assets/cv.pdf` — CV yang dapat diunduh
-- `public/assets/logo.png` — ikon/favicon (header memakai monogram CSS)
+- `public/assets/profile.webp`: foto profil teroptimasi (1200×1200, ±60 KB)
+- `public/assets/og-image.png`: preview 1200×630 untuk media sosial
+- `public/assets/cv.pdf`: CV yang dapat diunduh
+- `public/assets/logo.png`: ikon/favicon (header memakai monogram CSS)
 
 Gambar proyek sengaja tidak memakai screenshot palsu/foto stok. Setiap kartu
 memakai cover generatif berbasis ikon, indeks, dan label teknis.

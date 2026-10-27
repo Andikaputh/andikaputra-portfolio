@@ -17,7 +17,7 @@ export const Skills: React.FC = () => {
         index="02"
         kicker="Skills"
         title="Toolkit"
-        subtitle="What I use day to day, grouped by function — not just a wall of logos."
+        subtitle="What I use day to day, grouped by function. Not just a wall of logos."
       />
 
       <div className="border-t border-white/10">

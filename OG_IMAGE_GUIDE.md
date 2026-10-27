@@ -50,7 +50,7 @@ Agar selaras dengan tema portofolio Anda:
   - Logo (`public/assets/logo.png`) atau foto profil (`public/assets/profile.png`).
   - Badge teknologi singkat (Python, PyTorch, LangChain, Tableau, Kafka, Docker).
 - **Safe Zone (Area Aman)**:
-  - Berikan margin/padding minimal **50–80 px** di setiap sisi (atas, kanan, bawah, kiri) agar elemen teks tidak terpotong saat ditampilkan di perangkat mobile atau platform dengan crop melingkar/membulat.
+  - Berikan margin/padding minimal **50-80 px** di setiap sisi (atas, kanan, bawah, kiri) agar elemen teks tidak terpotong saat ditampilkan di perangkat mobile atau platform dengan crop melingkar/membulat.
 
 ---
 

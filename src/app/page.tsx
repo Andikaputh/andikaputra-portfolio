@@ -31,7 +31,7 @@ export default function Home() {
 
       <footer className="mx-auto w-full max-w-[1200px] px-5 pb-28 sm:px-8 md:pb-10">
         <div className="flex flex-col gap-3 border-t border-white/10 py-6 font-mono text-[9px] uppercase tracking-[0.14em] text-[#8c8781] sm:flex-row sm:items-center sm:justify-between">
-          <p>© Andika Putra Perdana — Data &amp; AI Engineer</p>
+          <p>© Andika Putra Perdana · Data &amp; AI Engineer</p>
           <div className="flex items-center gap-5">
             <p className="hidden sm:block">Built with Next.js</p>
             <a
