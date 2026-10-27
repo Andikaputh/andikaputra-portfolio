@@ -1,90 +1,109 @@
-"use client";
-
 import React from "react";
+import Image from "next/image";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
-import { Code2, Terminal } from "lucide-react";
+import { SectionHeading } from "./SectionHeading";
+import { Reveal } from "./ui/Reveal";
 
 export const About: React.FC = () => {
-  const { personal, codeCard } = PORTFOLIO_DATA;
+  const { personal, education } = PORTFOLIO_DATA;
+
+  const facts = [
+    {
+      label: "Education",
+      value: `${education.program} — ${education.institution}`,
+      meta: education.status,
+    },
+    {
+      label: "Location",
+      value: personal.location,
+      meta: "Open to remote / hybrid",
+    },
+    {
+      label: "Focus",
+      value: "Data & AI Engineering · MLOps · Analytics",
+      meta: education.focus,
+    },
+    {
+      label: "Availability",
+      value: personal.statusText,
+      meta: "Response within 1–2 business days",
+    },
+  ];
 
   return (
-    <section className="w-full max-w-6xl mx-auto space-y-6">
-      <div className="flex items-center gap-4 mb-2">
-        <h3 className="text-2xl font-bold text-white flex items-center gap-3">
-          <span className="text-rose-500 font-mono text-lg font-normal">02.</span> About & Architecture
-        </h3>
-        <div className="h-[1px] bg-neutral-800 flex-1 max-w-[260px]" />
-      </div>
+    <section
+      id="about"
+      aria-labelledby="about-title"
+      className="mx-auto w-full max-w-[1200px] scroll-mt-24 px-5 py-14 sm:px-8 sm:py-20"
+    >
+      <SectionHeading
+        id="about-title"
+        index="01"
+        kicker="About"
+        title="How I work"
+        subtitle="Background, technical focus, and how I turn ambiguous problems into systems people can actually use."
+      />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-        {/* Left Bento: Narrative */}
-        <div className="bg-neutral-900/80 border border-neutral-800 rounded-3xl p-6 lg:p-8 backdrop-blur-md shadow-xl flex flex-col justify-between space-y-4 hover:border-rose-600/30 transition-all duration-300">
-          <div className="space-y-4 text-neutral-300 text-xs lg:text-sm leading-relaxed">
+      <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16">
+        <Reveal>
+          <figure className="lg:sticky lg:top-24">
+            <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-sm border border-white/10 bg-[#0e0d0b]">
+              <Image
+                src={personal.profileImage}
+                alt={`Portrait of ${personal.name}`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 32vw"
+                className="object-cover object-top grayscale-[25%] transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.03] group-hover:grayscale-0"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#08090b]/80 via-transparent to-transparent"
+              />
+              <figcaption className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3 font-mono text-[9px] uppercase tracking-[0.16em]">
+                <span className="text-[#c9c4bc]">{personal.name}</span>
+                <span className="text-[#ff5a2b]">Data &amp; AI</span>
+              </figcaption>
+            </div>
+            <p className="mt-3 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.16em] text-[#8c8781]">
+              <span>Jakarta, Indonesia</span>
+              <span>Portrait / 2026</span>
+            </p>
+          </figure>
+        </Reveal>
+
+        <div>
+          <Reveal delay={80}>
+            <p className="max-w-2xl font-display text-[clamp(1.5rem,2.7vw,2.15rem)] leading-[1.32] text-[#f4f1ea]">
+              “I enjoy the messy parts: dirty data, misleading metrics, and models that still have to
+              be explained.”
+            </p>
+          </Reveal>
+
+          <div className="mt-7 max-w-2xl space-y-4 text-[14px] leading-[1.8] text-[#8f8a83]">
             <p>{personal.description}</p>
             <p>
-              Berpengalaman memimpin Capstone Project dalam perancangan aplikasi berbasis AI, melakukan analisis statistik data publik, serta mengoptimalkan alur pemrosesan streaming data berkecepatan tinggi.
+              I’m used to working end to end: cleaning raw data, choosing and evaluating models, then
+              packaging them into APIs or dashboards that non-technical people can use. Leading capstone
+              teams and supporting an HPC lab taught me to explain technical decisions without
+              unnecessary jargon.
             </p>
           </div>
 
-          <div className="pt-4 border-t border-neutral-800 grid grid-cols-2 gap-4 font-mono text-xs">
-            <div>
-              <span className="text-neutral-500 text-[10px] uppercase block">Location</span>
-              <span className="text-white font-semibold">East Jakarta, Indonesia</span>
-            </div>
-            <div>
-              <span className="text-neutral-500 text-[10px] uppercase block">Focus Area</span>
-              <span className="text-rose-400 font-semibold">Data & AI Engineering</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Bento: Interactive Code IDE Card */}
-        <div className="bg-neutral-900/90 border border-neutral-800 rounded-3xl p-5 backdrop-blur-md shadow-2xl font-mono text-xs hover:border-rose-600/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-          <div className="flex items-center justify-between pb-3 border-b border-neutral-800 mb-3">
-            <div className="flex items-center gap-2">
-              <div className="flex gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-rose-600" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              </div>
-              <span className="text-neutral-500 text-[11px] ml-2">engine.py</span>
-            </div>
-            <Code2 size={14} className="text-rose-500" />
-          </div>
-
-          <pre className="text-neutral-300 leading-relaxed overflow-x-auto p-2 bg-neutral-950/60 rounded-xl border border-neutral-800/60">
-            <code>
-              <span className="text-rose-400 font-semibold">class </span>
-              <span className="text-white font-bold">{codeCard.className}</span> &#123;{"\n"}
-              {"  "}
-              <span className="text-rose-300">roles</span> = [{"\n"}
-              {codeCard.roles.map((r, idx) => (
-                <React.Fragment key={idx}>
-                  {"    "}
-                  <span className="text-emerald-400">&quot;{r}&quot;</span>
-                  {idx < codeCard.roles.length - 1 ? "," : ""}
-                  {"\n"}
-                </React.Fragment>
-              ))}
-              {"  "}];{"\n\n"}
-              {"  "}
-              <span className="text-amber-400">getCurrentFocus</span>() &#123;{"\n"}
-              {"    "}
-              <span className="text-rose-400">return</span> [{"\n"}
-              {codeCard.focus.map((f, idx) => (
-                <React.Fragment key={idx}>
-                  {"      "}
-                  <span className="text-rose-300">&quot;{f}&quot;</span>
-                  {idx < codeCard.focus.length - 1 ? "," : ""}
-                  {"\n"}
-                </React.Fragment>
-              ))}
-              {"    "}];{"\n"}
-              {"  "}&#125;{"\n"}
-              &#125;
-              <span className="text-rose-500 font-bold animate-pulse">|</span>
-            </code>
-          </pre>
+          <dl className="mt-10 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+            {facts.map((fact, index) => (
+              <Reveal
+                key={fact.label}
+                delay={120 + index * 60}
+                className="border-t border-white/10 py-4"
+              >
+                <dt className="font-mono text-[9px] uppercase tracking-[0.18em] text-[#8c8781]">
+                  {fact.label}
+                </dt>
+                <dd className="mt-2 text-[13px] leading-snug text-[#e5e0d8]">{fact.value}</dd>
+                <dd className="mt-1 text-[11.5px] leading-relaxed text-[#8c8781]">{fact.meta}</dd>
+              </Reveal>
+            ))}
+          </dl>
         </div>
       </div>
     </section>

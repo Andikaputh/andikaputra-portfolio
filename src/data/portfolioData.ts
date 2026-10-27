@@ -1,52 +1,57 @@
-import { 
-  SiPython, SiPytorch, SiScikitlearn, SiPandas, SiNumpy, 
-  SiFastapi, SiDocker, SiGit, SiGithub, SiJupyter, 
+import {
+  SiPython, SiPytorch, SiScikitlearn, SiPandas, SiNumpy,
+  SiFastapi, SiDocker, SiGit, SiJupyter,
   SiStreamlit, SiApachekafka, SiSelenium, SiSqlite, SiTensorflow, SiFlask, SiCanvas
 } from "react-icons/si";
-import { Brain, Database, Network, LineChart, Code2, BarChart3, LayoutDashboard, FileSpreadsheet } from "lucide-react";
+import { Brain, Database, LineChart, Code2, BarChart3 } from "lucide-react";
+import type { ProjectCoverData } from "@/components/ProjectCover";
+
+export interface Project {
+  title: string;
+  category: string;
+  tag: string;
+  desc: string;
+  tech: string[];
+  cover: ProjectCoverData;
+  codeUrl: string;
+  deployUrl: string;
+  metrics?: string;
+  featured: boolean;
+  context?: string;
+}
+
 
 export const PORTFOLIO_DATA = {
   personal: {
     name: "Andika Putra Perdana",
-    roleIntro: "and i build",
-    typingWords: [
-      "Production Machine Learning Systems.",
-      "Interactive Tableau Analytics Dashboards.",
-      "Real-time AI & Stream Pipelines.",
-      "Clinical & Predictive Analytics."
-    ],
+    tagline:
+      "I build machine learning systems that make it to production — not just notebooks.",
     description:
-      "Mahasiswa Informatika Semester 7 Universitas Gunadarma dan Data & AI Engineer. Berpengalaman dalam analisis data sektoral publik di Diskominfo Kota Depok, riset ML klinis (SiPEKA dengan akurasi 99.34%), capstone industri (SignBank AI), serta arsitektur MLOps produksi berbasis FastAPI, Docker, dan Vector Search.",
+      "7th-semester Informatics student at Universitas Gunadarma and a Data & AI Engineer. Experienced in public-sector data analysis at Diskominfo Depok, clinical ML research (SiPEKA, 99.34% accuracy), industry capstones (SignBank AI), and production MLOps architectures built on FastAPI, Docker, and vector search.",
+    location: "Jakarta, Indonesia",
+    email: "andikaputh1@gmail.com",
     socials: {
       github: "https://github.com/Andikaputh",
       linkedin: "https://www.linkedin.com/in/andikaputraperdana/",
       instagram: "https://www.instagram.com/andika.p.p/",
     },
     cvPath: "/assets/cv.pdf",
-    profileImage: "/assets/profile.png",
-    statusText: "AVAILABLE FOR DATA & AI ROLES",
+    profileImage: "/assets/profile.webp",
+    statusText: "Open to Data & AI roles",
   },
 
   metrics: [
-    { label: "Best Model Performance", value: "99.34%", sub: "Test Accuracy (SiPEKA XGBoost)" },
-    { label: "Usability Validation", value: "85 SUS", sub: "Grade A / Excellent Score" },
-    { label: "Deployed Systems & Dashboards", value: "10+ Projects", sub: "APIs, Tableau Dashboards & Web Apps" },
+    { label: "Best Model Accuracy", value: "99.34%", sub: "SiPEKA test accuracy (XGBoost)" },
+    { label: "Usability Validation", value: "85 SUS", sub: "Grade A / Excellent" },
+    { label: "Documented Projects", value: "9 Projects", sub: "API, dashboard & web app" },
   ],
 
-  codeCard: {
-    className: "AndikaDataEngine",
-    roles: [
-      "Data & AI Engineer",
-      "Data Analyst & Visualization Specialist",
-      "Machine Learning Engineer",
-      "Python Backend Developer"
-    ],
-    focus: [
-      "Sectoral Data Analysis & Tableau Dashboards",
-      "Production-Grade MLOps & Serving",
-      "RAG & Vector Databases (ChromaDB)",
-      "Clinical Data Modeling & Analytics"
-    ],
+  education: {
+    institution: "Universitas Gunadarma",
+    program: "B.Sc. Informatics",
+    status: "7th semester · Active",
+    location: "Depok, West Java",
+    focus: "Machine Learning, Data Engineering, Distributed Systems",
   },
 
   skills: [
@@ -120,20 +125,20 @@ export const PORTFOLIO_DATA = {
     },
   ],
 
-experiences: [
+  experiences: [
     // --- TECHNICAL & AI EXPERIENCE ---
     {
       type: "technical",
       title: "Data Analyst Intern",
       role: "Data Analyst Intern",
-      company: "Dinas Komunikasi dan Informatika (Diskominfo) Kota Depok",
+      company: "Department of Communication and Information Technology (Diskominfo), Depok City",
       period: "Sep 2026 - Present",
       location: "Depok, West Java · On-site",
       highlights: [
-        "Berkontribusi dalam pengelolaan, pengolahan, dan analisis data statistik sektoral Kota Depok untuk mendukung penyajian informasi publik secara efektif.",
-        "Mengembangkan dashboard interaktif menggunakan Tableau untuk memvisualisasikan indikator statistik utama dan mengomunikasikan wawasan berbasis data.",
-        "Merancang infografis berbasis data menggunakan Canva untuk menyajikan informasi statistik secara komunikatif, jelas, dan menarik secara visual.",
-        "Mentransformasi data mentah menjadi output visual informatif guna mendukung diseminasi informasi publik dan pengambilan keputusan berbasis data."
+        "Contributed to the management, processing, and analysis of sectoral statistical data for the City of Depok to support effective public information delivery.",
+        "Built interactive Tableau dashboards to visualize key statistical indicators and communicate data-driven insights.",
+        "Designed data-driven infographics in Canva to present statistical information in a clear, communicative, and visually engaging way.",
+        "Transformed raw data into informative visual outputs to support public information dissemination and data-driven decision-making."
       ],
       skills: ["Data Analysis", "Tableau", "Data Processing", "Canva", "Sectoral Statistics", "Data Visualization"]
     },
@@ -145,7 +150,7 @@ experiences: [
       period: "Oct 2026 - Present",
       location: "Remote",
       highlights: [
-        "Memimpin tim lintas fungsi dalam merancang dan mengembangkan solusi analitik data serta sistem berbasis AI untuk UMKM lokal."
+        "Led a cross-functional team in designing and building data analytics and AI-based systems for local MSMEs."
       ],
       skills: ["Team Leadership", "Data Analytics", "AI System Design"]
     },
@@ -157,8 +162,8 @@ experiences: [
       period: "Feb 2026 - Jul 2026",
       location: "Remote",
       highlights: [
-        "Mempelajari Machine Learning, Deep Learning, NLP, Computer Vision, dan MLOps menggunakan TensorFlow.",
-        "Mengembangkan SignBank sebagai capstone project: platform AI penerjemah bahasa isyarat ke teks secara real-time berbasis Computer Vision untuk membantu teller bank berkomunikasi dengan nasabah Tuli/Tunarungu."
+        "Studied Machine Learning, Deep Learning, NLP, Computer Vision, and MLOps using TensorFlow.",
+        "Built SignBank as the capstone project: a real-time Computer Vision sign-language-to-text platform that helps bank tellers communicate with Deaf customers."
       ],
       skills: ["TensorFlow", "Deep Learning", "Computer Vision", "NLP", "MLOps", "Python"]
     },
@@ -170,8 +175,8 @@ experiences: [
       period: "Oct 2024 - May 2025",
       location: "Depok, West Java · Hybrid",
       highlights: [
-        "Memberikan bantuan teknis, troubleshooting akses supercomputer/DGX, serta bimbingan praktikum bagi mahasiswa.",
-        "Mengkoordinasikan operasional lab, forum group discussion (FGD), dan kegiatan event divisi."
+        "Provided technical support, supercomputer/DGX access troubleshooting, and lab guidance for students.",
+        "Coordinated lab operations, focus group discussions (FGD), and divisional events."
       ],
       skills: ["High-Performance Computing", "Python", "Data Science", "Troubleshooting"]
     },
@@ -185,8 +190,8 @@ experiences: [
       period: "Jul 2024 - Sep 2024",
       location: "Depok, West Java",
       highlights: [
-        "PKKMB FTI 2024: Merancang pemetaan rute dan alur penutupan parade untuk kelancaran arus massa.",
-        "It's Sociart 2024: Mengelola operasional turnamen Mobile Legends dan bertindak sebagai Liaison Officer peserta."
+        "PKKMB FTI 2024: Designed route mapping and parade closing flows to keep crowd movement smooth.",
+        "It's Sociart 2024: Managed Mobile Legends tournament operations and served as the participants' Liaison Officer."
       ],
       skills: ["Event Operations", "Problem Solving", "Crowd Control", "Communication"]
     },
@@ -198,10 +203,10 @@ experiences: [
       period: "Mar 2024 - Sep 2024",
       location: "Jakarta, Indonesia · Hybrid",
       highlights: [
-        "Memimpin tim manajemen konten TikTok, mengatur ideasi, alur produksi, hingga evaluasi performa konten.",
-        "Mengembangkan soft skill kepemimpinan, pemecahan masalah, dan manajemen proyek kreatif."
+        "Led the TikTok content management team, from ideation and production flow to content performance evaluation.",
+        "Developed leadership, problem-solving, and creative project management skills."
       ],
-      skills: ["Kepemimpinan Tim", "Project Management", "Digital Strategy"]
+      skills: ["Team Leadership", "Project Management", "Digital Strategy"]
     }
   ],
 
@@ -209,24 +214,24 @@ experiences: [
     {
       title: "SiPEKA: Early Preeclampsia Risk Prediction",
       category: "Academic & Machine Learning",
-      tag: "PENULISAN ILMIAH UG",
-      desc: "Web app prediktor risiko preeklamsia berbasis XGBoost + SMOTE dengan akurasi 99.34% dan AUC 0.9993. Dilengkapi clinical safety-override rules, kalkulasi otomatis MAP/IMT, dan laporan medis siap cetak. Teruji SUS score 85 (Excellent).",
+      tag: "UNDERGRADUATE THESIS",
+      desc: "An XGBoost + SMOTE preeclampsia risk prediction web app with 99.34% accuracy and 0.9993 AUC. Includes clinical safety-override rules, automatic MAP/BMI calculation, and print-ready medical reports. Validated with an SUS score of 85 (Excellent).",
       tech: ["Python", "Flask", "XGBoost", "SMOTE", "Scikit-Learn"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80",
+      cover: { label: "CLINICAL ML · XGBOOST", icon: "brain" },
       codeUrl: "https://github.com/Andikaputh/sipeka",
       deployUrl: "https://sipeka.onrender.com/",
       metrics: "Accuracy: 99.34% | SUS: 85 (Excellent)",
       featured: true,
-      context: "Penulisan Ilmiah: Universitas Gunadarma"
+      context: "Undergraduate Thesis: Universitas Gunadarma"
     },
     {
       title: "SignBank: AI Sign Language Translation",
       category: "Bootcamp Capstone & AI",
       tag: "DBS CAMP CAPSTONE",
-      desc: "Platform AI penerjemah bahasa isyarat ke teks secara real-time berbasis Computer Vision dan Deep Learning untuk membantu teller bank berkomunikasi dengan nasabah Tuli/Tunarungu.",
+      desc: "A real-time Computer Vision and Deep Learning sign-language-to-text platform that helps bank tellers communicate with Deaf customers.",
       tech: ["Python", "TensorFlow", "Deep Learning", "Computer Vision", "OpenCV", "Next.js"],
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80",
-      codeUrl: "https://github.com/Andikaputh",
+      cover: { label: "COMPUTER VISION · REAL-TIME", icon: "scan" },
+      codeUrl: "",
       deployUrl: "https://signbank-ai.vercel.app/",
       metrics: "Real-time Vision Inference",
       featured: true,
@@ -236,9 +241,9 @@ experiences: [
       title: "Production-Grade Recommendation System",
       category: "MLOps & AI Engineering",
       tag: "PROD-GRADE MLOPS",
-      desc: "Sistem rekomendasi personalisasi end-to-end dengan arsitektur Offline Pipeline (SVD, MLflow, SQLite) dan Online Serving (FastAPI, Docker, Render PaaS).",
+      desc: "An end-to-end personalized recommendation system with an offline pipeline (SVD, MLflow, SQLite) and online serving (FastAPI, Docker, Render PaaS).",
       tech: ["Python", "TruncatedSVD", "MLflow", "FastAPI", "SQLite", "Docker", "Render"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80",
+      cover: { label: "OFFLINE PIPELINE · ONLINE SERVING", icon: "layers" },
       codeUrl: "https://github.com/Andikaputh/production-recommendation-system",
       deployUrl: "https://production-recommendation-system.onrender.com/recommendations/123",
       metrics: "Precision@10 & Cold-Start Fallback",
@@ -248,9 +253,9 @@ experiences: [
       title: "AI-Powered PDF Q&A (RAG Lite)",
       category: "GenAI & LLM Workflows",
       tag: "RAG & VECTOR SEARCH",
-      desc: "Aplikasi tanya jawab dokumen PDF interaktif menggunakan Hugging Face Local Embeddings, ChromaDB Vector Search, dan Groq LLM Inference API.",
+      desc: "An interactive PDF question-answering app using Hugging Face local embeddings, ChromaDB vector search, and the Groq LLM inference API.",
       tech: ["Python", "Streamlit", "LangChain", "ChromaDB", "Hugging Face", "Groq API"],
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80",
+      cover: { label: "RETRIEVAL · VECTOR SEARCH", icon: "file" },
       codeUrl: "https://github.com/Andikaputh/rag-lite-pdf",
       deployUrl: "",
       metrics: "Local Embeddings + Fast LLM",
@@ -260,9 +265,9 @@ experiences: [
       title: "Hugging Face FastAPI Sentiment Microservice",
       category: "ML Microservices & NLP",
       tag: "NLP MICROSERVICE",
-      desc: "Microservice REST API performa tinggi untuk analisis sentimen teks menggunakan pretrained Hugging Face Transformer dan Pydantic Validation.",
+      desc: "A high-performance REST API microservice for text sentiment analysis using a pretrained Hugging Face Transformer and Pydantic validation.",
       tech: ["Python", "FastAPI", "Transformers", "PyTorch", "Pydantic", "Uvicorn"],
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=700&q=80",
+      cover: { label: "NLP · REST API", icon: "chat" },
       codeUrl: "https://github.com/Andikaputh/fastapi-huggingface-sentiment-service",
       deployUrl: "",
       metrics: "Swagger UI + Local Inference",
@@ -272,11 +277,11 @@ experiences: [
       title: "Real-time Anomaly Detection Engine",
       category: "Streaming & Pipelines",
       tag: "DATA PIPELINE",
-      desc: "Sistem pendeteksi anomali pada data stream transaksi secara real-time berbasis Kafka/Redpanda, FastAPI, dan Docker Compose.",
+      desc: "A real-time anomaly detection system for transaction streams built with Kafka/Redpanda, FastAPI, and Docker Compose.",
       tech: ["Python", "Redpanda", "FastAPI", "Docker", "SQLite"],
-      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=700&q=80",
+      cover: { label: "STREAMING · KAFKA", icon: "activity" },
       codeUrl: "https://github.com/Andikaputh/fraud-detection-engine",
-      deployUrl: "https://vercel.app",
+      deployUrl: "",
       metrics: "Throughput: 12K events/s",
       featured: false,
     },
@@ -284,9 +289,9 @@ experiences: [
       title: "Credit Card Customer Segmentation",
       category: "Machine Learning & Analytics",
       tag: "MACHINE LEARNING",
-      desc: "Aplikasi segmentasi profil nasabah menggunakan algoritma K-Means & PCA yang di-deploy ke Streamlit Community Cloud.",
+      desc: "A customer profile segmentation app using K-Means and PCA, deployed to Streamlit Community Cloud.",
       tech: ["Scikit-Learn", "Streamlit", "Pandas", "Python"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80",
+      cover: { label: "CLUSTERING · PCA", icon: "chart" },
       codeUrl: "https://github.com/Andikaputh/credit-card-segmentation",
       deployUrl: "https://credit-card-cluster.streamlit.app",
       metrics: "Silhouette Score: 0.74",
@@ -296,9 +301,9 @@ experiences: [
       title: "MarkItDown Web Converter (Doc2MD)",
       category: "Tools & AI Preprocessing",
       tag: "AI DATA PREPROCESSING",
-      desc: "Web converter privacy-first untuk mengubah PDF, DOCX, PPTX, dan XLSX menjadi Markdown bersih yang siap dimasukkan ke pipeline LLM atau RAG.",
+      desc: "A privacy-first web converter that turns PDF, DOCX, PPTX, and XLSX files into clean Markdown ready for LLM or RAG pipelines.",
       tech: ["Python", "FastAPI", "Microsoft MarkItDown", "React", "Vite"],
-      image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=700&q=80",
+      cover: { label: "DOCUMENT → MARKDOWN", icon: "document" },
       codeUrl: "https://github.com/Andikaputh/doc2md-converter",
       deployUrl: "https://doc2md-nu.vercel.app/",
       metrics: "In-Memory Batch Processing",
@@ -308,13 +313,13 @@ experiences: [
       title: "TypeHybrid: Touch Typing Platform",
       category: "Interactive Web Apps",
       tag: "WEB APP & ANALYTICS",
-      desc: "Aplikasi latihan mengetik interaktif dengan kurikulum belajar, visual keyboard guide, statistik real-time, dan efek suara mechanical keyboard.",
+      desc: "An interactive touch-typing practice app with a learning curriculum, visual keyboard guide, real-time statistics, and mechanical keyboard sound effects.",
       tech: ["Next.js", "Tailwind CSS", "Web Audio API", "Vercel"],
-      image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80",
+      cover: { label: "WEB APP · TYPING ENGINE", icon: "keyboard" },
       codeUrl: "https://github.com/Andikaputh/typehybrid",
       deployUrl: "https://typehybrid.vercel.app/",
       metrics: "Adaptive UI + Audio Profiles",
       featured: false,
     },
-  ],
+  ] satisfies Project[],
 };

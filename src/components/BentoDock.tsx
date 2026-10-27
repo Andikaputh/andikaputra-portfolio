@@ -1,44 +1,61 @@
 "use client";
 
 import React from "react";
-import { LayoutDashboard, User, Cpu, Briefcase, FolderGit2, Mail } from "lucide-react";
+import {
+  LayoutDashboard,
+  User,
+  Cpu,
+  Briefcase,
+  FolderGit2,
+  Mail,
+  type LucideIcon,
+} from "lucide-react";
+import { useActiveSection } from "@/hooks/useActiveSection";
 
-interface BentoDockProps {
-  activeTab: string;
-  onTabChange: (tabId: string) => void;
-}
-
-const DOCK_ITEMS = [
+const DOCK_ITEMS: { id: string; label: string; icon: LucideIcon }[] = [
   { id: "overview", label: "Overview", icon: LayoutDashboard },
   { id: "about", label: "About", icon: User },
   { id: "skills", label: "Skills", icon: Cpu },
   { id: "experience", label: "Experience", icon: Briefcase },
-  { id: "projects", label: "Projects", icon: FolderGit2 },
+  { id: "work", label: "Work", icon: FolderGit2 },
   { id: "contact", label: "Contact", icon: Mail },
 ];
 
-export const BentoDock: React.FC<BentoDockProps> = ({ activeTab, onTabChange }) => {
+/**
+ * Dock navigasi khusus mobile. Di desktop, navigasi ditangani header.
+ */
+export const BentoDock: React.FC = () => {
+  const active = useActiveSection();
+
   return (
-    <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-[calc(100vw-1.5rem)]">
-      <nav className="flex items-center gap-1 sm:gap-1.5 p-1.5 sm:p-2 bg-neutral-900/85 border border-rose-600/30 rounded-full backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.8),0_0_20px_rgba(225,29,72,0.2)] max-w-full overflow-x-auto no-scrollbar">
+    <div className="fixed inset-x-0 bottom-0 z-50 flex justify-center pb-[max(1rem,env(safe-area-inset-bottom))] md:hidden">
+      <nav
+        aria-label="Page section navigation"
+        className="flex items-center gap-0.5 rounded-full border border-white/10 bg-[#0c0b0a]/90 p-1.5 shadow-[0_16px_40px_rgba(0,0,0,0.65)] backdrop-blur-xl"
+      >
         {DOCK_ITEMS.map((item) => {
           const Icon = item.icon;
-          const isActive = activeTab === item.id;
+          const isActive = active === item.id;
           return (
-            <button
+            <a
               key={item.id}
-              onClick={() => onTabChange(item.id)}
-              title={item.label}
+              href={`#${item.id}`}
+              aria-current={isActive ? "true" : undefined}
               aria-label={item.label}
-              className={`relative flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-full font-sans text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer flex-shrink-0 ${
+              className={`relative flex h-10 w-10 items-center justify-center rounded-full transition-colors duration-300 ${
                 isActive
-                  ? "bg-rose-600 text-white shadow-[0_0_15px_rgba(225,29,72,0.6)]"
-                  : "text-neutral-400 hover:text-white hover:bg-neutral-800/60"
+                  ? "text-[#ff5a2b]"
+                  : "text-[#8c8781] hover:text-[#c9c4bc]"
               }`}
             >
-              <Icon size={14} />
-              <span className="hidden sm:inline">{item.label}</span>
-            </button>
+              <Icon size={16} aria-hidden />
+              {isActive && (
+                <span
+                  aria-hidden
+                  className="absolute bottom-1 h-0.5 w-1 rounded-full bg-[#ff5a2b]"
+                />
+              )}
+            </a>
           );
         })}
       </nav>
